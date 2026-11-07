@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSLP - Sistema de Tutorías - Sistemas Virtuales</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="main-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        </div>
+        <div class="header-titles">
+            <h1>UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ</h1>
+            <h2>SISTEMA DE TUTORÍAS</h2>
+            <h3>MATERIA DE SISTEMAS VIRTUALES</h3>
+        </div>
+    </header>
+
+   <nav class="navbar">
+        <div class="nav-container">
+            <!-- Botón Hamburguesa (solo visible en pantallas pequeñas) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Enlaces de navegación -->
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="tutor.html" class="nav-item"><i class="fa-solid fa-chalkboard-user"></i> Tutor</a>
+                <a href="alumnos.html" class="nav-item"><i class="fa-solid fa-users"></i> Alumnos</a>
+                <a href="asignaciones.html" class="nav-item"><i class="fa-solid fa-folder-open"></i> Asignación de tutor</a>
+                <a href="nosotros.html" class="nav-item"><i class="fa-solid fa-envelope"></i> Nosotros</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal - Panel Informativo de Inicio -->
+    <main class="main-container">
+
+        <!-- Banner de Bienvenida -->
+        <div class="welcome-banner">
+            <div>
+                <h2><i class="fa-solid fa-graduation-cap"></i> Sistema de Asignación de Tutores</h2>
+                <p>Bienvenido al Portal de la UPSLP. Este sistema tiene como propósito gestionar el registro y la asignación formal de profesores tutores a los alumnos para dar seguimiento a su desarrollo académico.</p>
+            </div>
+        </div>
+
+        <!-- Grid Dashboard Informativo -->
+        <div class="dashboard-grid">
+
+            <!-- Tarjeta de Métricas Rápidas -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-chart-pie"></i> Métricas del Sistema
+                </div>
+                <div class="card-body">
+                    <div class="metrics-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="metric-card" style="background: #EBF2FF; padding: 20px; border-radius: 8px; border-left: 5px solid #003399; text-align: center;">
+                            <i class="fa-solid fa-users" style="font-size: 2rem; color: #003399; margin-bottom: 8px;"></i>
+                            <h3 id="statTotalAlumnos" style="font-size: 1.8rem; color: #003399;">3</h3>
+                            <p style="font-size: 0.9rem; font-weight: 600; color: #333;">Total de Alumnos</p>
+                        </div>
+
+                        <div class="metric-card" style="background: #FFF3EB; padding: 20px; border-radius: 8px; border-left: 5px solid #FF6600; text-align: center;">
+                            <i class="fa-solid fa-user-tie" style="font-size: 2rem; color: #FF6600; margin-bottom: 8px;"></i>
+                            <h3 id="statTotalTutores" style="font-size: 1.8rem; color: #FF6600;">2</h3>
+                            <p style="font-size: 0.9rem; font-weight: 600; color: #333;">Tutores Asignados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Avisos e Informes Rápidos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-bullhorn"></i> Avisos e Informes Rápidos
+                </div>
+                <div class="card-body">
+                    <ul class="notices-list" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #E0E0E0; display: flex; gap: 12px; align-items: flex-start;">
+                            <i class="fa-solid fa-circle-info" style="color: #FF6600; font-size: 1.2rem; margin-top: 3px;"></i>
+                            <div>
+                                <strong style="color: #003399;">Periodo Oficial de Asignación</strong>
+                                <p style="font-size: 0.88rem; color: #555; margin-top: 2px;">El registro y vinculación de tutores para la materia de Sistemas Virtuales estará abierto durante las primeras dos semanas del ciclo escolar.</p>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #E0E0E0; display: flex; gap: 12px; align-items: flex-start;">
+                            <i class="fa-solid fa-envelope-open-text" style="color: #003399; font-size: 1.2rem; margin-top: 3px;"></i>
+                            <div>
+                                <strong style="color: #003399;">Notificación Institucional</strong>
+                                <p style="font-size: 0.88rem; color: #555; margin-top: 2px;">Una vez completado el registro en el sistema, la confirmación de la tutoría será enviada directamente al correo del estudiante por parte del Departamento de Tutorías.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: flex-start;">
+                            <i class="fa-solid fa-triangle-exclamation" style="color: #FF6600; font-size: 1.2rem; margin-top: 3px;"></i>
+                            <div>
+                                <strong style="color: #003399;">Atención de Reasignaciones</strong>
+                                <p style="font-size: 0.88rem; color: #555; margin-top: 2px;">Para solicitudes de cambio o aclaraciones de tutor asignado, acudir directamente al Departamento de Tutorías de la UPSLP.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Ventana Modal de Notificaciones -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <h3 id="modalTitle">Título Modal</h3>
+            <p id="modalContent">Contenido detallado...</p>
+            <button class="btn-orange" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div>
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Urbano Villalón #500, Col. La Ladrillera, S.L.P.</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@upslp.edu.mx</p>
+                <p><i class="fa-solid fa-phone"></i> +52 (444) 870-2100</p>
+            </div>
+            <div>
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Universidad Politécnica de San Luis Potosí. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Archivo JS compartido -->
+    <script src="script.js"></script>
+</body>
+</html>
