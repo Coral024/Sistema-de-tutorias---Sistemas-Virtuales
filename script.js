@@ -131,16 +131,40 @@ function registrarAsignacion(event) {
     }
 }
 
-// Toggle para desplegar/ocultar el menú hamburguesa en móviles
+async function cargarMetricasInicio() {
+    try {
+        // Cargar total de alumnos
+        const resAlumnos = await fetch(`${API_URL}/alumnos`);
+        const alumnos = await resAlumnos.json();
+        const statAlumnos = document.getElementById('statTotalAlumnos');
+        if (statAlumnos) {
+            statAlumnos.innerText = alumnos.length;
+        }
+
+        // Cargar total de asignaciones (tutores asignados)
+        const resAsignaciones = await fetch(`${API_URL}/asignaciones`);
+        const asignaciones = await resAsignaciones.json();
+        const statTutores = document.getElementById('statTotalTutores');
+        if (statTutores) {
+            statTutores.innerText = asignaciones.length;
+        }
+    } catch (error) {
+        console.error("Error cargando métricas:", error);
+    }
+}
+
+// ==========================================
+// EVENTO DE CARGA INICIAL (UI y Datos)
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Lógica del Menú Hamburguesa (Móviles)
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show');
-            
-            // Cambiar el ícono entre barras y "X" al abrir/cerrar
             const icon = navToggle.querySelector('i');
             if (icon) {
                 icon.classList.toggle('fa-bars');
@@ -148,5 +172,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 2. Lógica de Carga de Datos desde la API
+    
+    // Si estamos en Inicio (index.html)
+    if (document.getElementById('statTotalAlumnos')) {
+        cargarMetricasInicio();
+    }
+    // Si estamos en Alumnos (alumnos.html)
+    if (document.getElementById('tablaAlumnosBody')) {
+        cargarTablaAlumnos();
+    }
+    // Si estamos en Tutores (tutor.html)
+    if (document.getElementById('tablaTutoresBody')) {
+        cargarTablaTutores();
+    }
+    // Si estamos en Asignaciones (asignaciones.html)
+    if (document.getElementById('tablaAsignacionesBody')) {
+        cargarTablaAsignaciones();
+        cargarSelectoresAsignacion();
+    }
 });
+
+
 
